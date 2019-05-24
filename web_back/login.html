@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/iconfont.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="./js/bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -31,15 +32,42 @@
 
     </div>
 
+    <!-- boostrap 弹出框 -->
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">温馨提示：</h4>
+            </div>
+            <div class="modal-body my_modal">
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">确认关闭</button>
+              <button type="button" class="btn btn-primary">残忍拒绝</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </body>
 
 <script src="./js/jquery-1.12.4.min.js"></script>
+<script src="./js/bootstrap/js/bootstrap.min.js"></script>
 <script>
     $(function(){
         $('.input_sub').click(function(e){
             e.preventDefault()
             if($('.input_txt').val()==''||$('.input_pass').val()==''){
-                alert("账号或者密码不能为空！")
+                $('.my_modal').text('您输入的账号或者密码不能为空！')
+                $('#myModal').modal()
                 return
             }
             $.ajax({
@@ -52,7 +80,8 @@
             dataType:'json',
             success:function(backData){
             if(backData.code==400){
-                alert('账号或者密码错误')
+                $('.my_modal').text('您输入的账号或者密码错误！')
+                $('#myModal').modal()
                 return
             }else if(backData.code==200){
                 window.location.href='./index.html'
