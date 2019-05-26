@@ -184,14 +184,19 @@
                 url:'https://autumnfish.cn/big/admin/category_add',
                 type:'post',
                 data:{
-                    name:$('.name').val(),
-                    slug:$('.slug').val()
+                    name:$('.name').val().trim(),
+                    slug:$('.slug').val().trim()
                 },
                 success:function(backData){
                 console.log(backData);
+                    alert(backData.msg)
+                    /*新增成功后再次点击input的内容清空*/
+                    $('.name').val('')
+                    $('.slug').val('')
                 getbooks()
                 }
                 })
+
             })
         }) 
     </script>
