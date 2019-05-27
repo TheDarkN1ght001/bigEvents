@@ -68,7 +68,7 @@
         /*用户信息界面数据获取*/
         $(function () {
             $.ajax({
-                url: 'https://autumnfish.cn/big/admin/userinfo_get',
+                url: 'http://localhost:8000/admin/userinfo_get',
                 type: 'get',
                 success: function (backData) {
                     console.log(backData);
@@ -98,7 +98,7 @@
                 // 实例化formData
                 var formData = new FormData($('form')[0])
                 $.ajax({
-                    url: 'https://autumnfish.cn/big/admin/userinfo_edit',
+                    url: 'http://localhost:8000/admin/userinfo_edit',
                     type: 'post',
                     data: formData,
                     // 不设置头

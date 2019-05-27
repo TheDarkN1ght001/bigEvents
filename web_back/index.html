@@ -148,7 +148,7 @@
 
             $('.tuichu').click(function(){
                 $.ajax({
-                url:'https://autumnfish.cn/big/admin/logout',
+                url:'http://localhost:8000/admin/logout',
                 type:'post',
                 success:function(backData){
                 console.log(backData);
@@ -162,7 +162,7 @@
 
             /*首页数据获取*/
             $.ajax({
-            url:'https://autumnfish.cn/big/admin/userinfo_get',
+            url:'http://localhost:8000/admin/userinfo_get',
             type:'get',
             success:function(backData){
             console.log(backData);
