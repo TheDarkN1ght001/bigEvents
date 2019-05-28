@@ -190,29 +190,29 @@
             }
             getbooks()
             /*新增*/
-            $('#model_add').click(function () {
-                console.log($('#model_add').text());
-                if ($('#model_add').text() == '新增 ') {
-                    $.ajax({
-                        url: 'http://localhost:8000/admin/category_add',
-                        type: 'post',
-                        data: {
-                            name: $('.name').val(),
-                            slug: $('.slug').val()
-                        },
-                        success: function (backData) {
-                            console.log(backData);
-                            /*新增成功后再次点击input的内容清空*/
-                            $('.name').val('')
-                            $('.slug').val('')
+            // $('#model_add').click(function () {
+            //     console.log($('#model_add').text());
+            //     if ($('#model_add').text() == '新增 ') {
+            //         $.ajax({
+            //             url: 'http://localhost:8000/admin/category_add',
+            //             type: 'post',
+            //             data: {
+            //                 name: $('.name').val(),
+            //                 slug: $('.slug').val()
+            //             },
+            //             success: function (backData) {
+            //                 console.log(backData);
+            //                 /*新增成功后再次点击input的内容清空*/
+            //                 $('.name').val('')
+            //                 $('.slug').val('')
 
-                            if (backData.code == 200) {
-                                getbooks()
-                            }
-                        }
-                    })
-                }
-            })
+            //                 if (backData.code == 200) {
+            //                     getbooks()
+            //                 }
+            //             }
+            //         })
+            //     }
+            // })
 
             /*删除功能*/
             window.deleteTr = function deleteTr(id) {
@@ -276,13 +276,13 @@
                         url: 'http://localhost:8000/admin/category_add',
                         type: 'post',
                         data: {
-                            name: $('.cate_name').val(),
-                            slug: $('.cate_slug').val()
+                            name: $('.name').val(),
+                            slug: $('.slug').val()
                         },
                         success: function (backData) {
                             if (backData.code == 200) {
                                 //  重新获取数据
-                                getCate()
+                                getbooks()
                             }
                         }
                     })
